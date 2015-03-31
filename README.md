@@ -7,5 +7,5 @@ MEng Electronic & Electrical Engineering
 University of Strathclyde Glasgow
 
 
-Fraser Macfarlane & Baniel Brady
+Fraser Macfarlane & Daniel Brady
 ©2015
