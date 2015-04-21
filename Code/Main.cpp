@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 #include"Steganography.h"
 
 using namespace std;
@@ -10,7 +11,7 @@ int main(int argc, char **argv)
 	do {
 		cout << "0. Exit" << endl;
 		cout << "1. Encrypt Message" << endl;
-		cout << "2. Decrypt Message" << endl;
+		cout << "2. Decrypt Message" << endl << endl;
 		cin >> input;
 
 		switch (input)
@@ -18,17 +19,18 @@ int main(int argc, char **argv)
 			case '1':
 			{
 
-				Steg.Encrypter(argc, argv);
+				Steg.Encrypter(argc,argv);
 
 			};
+			break;
 			case '2':
 			{
 
-				Steg.Encrypter(argc, argv);
+				Steg.Decrypter(argc,argv);
 
 			};
+			break;
 		}
 	} while (input != '0');
-
 	return 0;
 }
