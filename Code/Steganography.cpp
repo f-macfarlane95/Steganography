@@ -4,7 +4,6 @@
 #include<fstream>
 #include<stdlib.h>
 #include<string>
-#include<sstream>
 
 using namespace std;
 using namespace cimg_library;
@@ -28,30 +27,32 @@ void Steganography::Encrypter(int argc, char **argv)
 
 	cout << "Enter the name of the file you wish to open in .bmp format (StarWars.bmp): \n";
 	cin >> inputImg;
+	cout << endl;
 	
 	cout << "Enter the message to be hidden within this Image: \n";
-	
+	cout << endl;
 	cin.ignore();
+	
 	getline(cin, Message_Buffer);
 	cout << "Message is: "<< Message_Buffer << endl;
-	
 	str_len = Message_Buffer.length();
 	cout << "Length is: " << str_len << endl;
 	
+	cout << endl;
 
-	Message_str = Message_Buffer.substr(0, str_len);
-	Message_str = Message_str.c_str();
-
+	Message_str = Message_Buffer;
 	
 	
 	cout << "Enter the filename you wish to save this altered image as: " << endl;
 	cin >> outputImg;
+	cout << endl;
 	cout << "Enter a password for security: (No Spaces)" << endl;
 	cin >> password;
+	cout << endl;
 
 	const char *file_i1 = cimg_option("-i1", inputImg, "Input Image ");
 	const char *file_o = cimg_option("-o", outputImg, "Encrypted Output Image");
-	const bool visu = cimg_option("-visu", true, "Visualization mode");
+	const bool open = cimg_option("-visu", true, "Visualization mode");
 
 	cimg_library::CImg<unsigned char> img1(file_i1);
 	cimg_library::CImg<unsigned char> dest(img1);
@@ -76,8 +77,8 @@ void Steganography::Encrypter(int argc, char **argv)
 	}
 
 	if (file_o) dest.save(file_o);
-	if (visu) dest.display("Encrypted Image");
-	
+	if (open) dest.display("Encrypted Image");
+	cout << endl << endl;
 }
 
 void Steganography::Decrypter(int argc, char **argv)
@@ -90,8 +91,10 @@ void Steganography::Decrypter(int argc, char **argv)
 
 	cout << "Enter the name of the file you wish to open in .bmp format (StarWarsE.bmp): " << endl;
 	cin >> inputImg;
+	cout << endl;
 	cout << "Enter the password: " << endl;
 	cin >> password;
+	cout << endl;
 
 	vector<unsigned char> temp;
 	const char *file_i1 = cimg_option("-i1", inputImg, "Source Image ");
@@ -120,9 +123,9 @@ void Steganography::Decrypter(int argc, char **argv)
 			int ascii_pixels;
 			ascii_pixels = img1(x, 1, 0); // We find the decimal value at a given pixel
 			char Ascii = static_cast<char>(ascii_pixels); // convert this to an ascii character
-			cout << ascii_pixels <<"      :       " << Ascii << endl; // display both fields
+			cout << Ascii ; // display ASCII
 		}
-	
+		cout << endl << endl << endl;
 	}	
 	
 	

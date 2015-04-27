@@ -6,6 +6,8 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+	cout << "Steganography - Fraser Macfarlane & Daniel Brady" << endl;
+	cout << "EE273 Group Project 2015" << endl << endl;
 	Steganography Steg;
 	char input;
 	do {
@@ -16,20 +18,20 @@ int main(int argc, char **argv)
 
 		switch (input)
 		{
-			case '1':
-			{
+		case '1':
+		{
 
-				Steg.Encrypter(argc,argv);
+			Steg.Encrypter(argc, argv);
 
-			};
-			break;
-			case '2':
-			{
+		};
+		break;
+		case '2':
+		{
 
-				Steg.Decrypter(argc,argv);
+			Steg.Decrypter(argc, argv);
 
-			};
-			break;
+		};
+		break;
 		}
 	} while (input != '0');
 	return 0;
